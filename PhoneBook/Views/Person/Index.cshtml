@@ -1,0 +1,47 @@
+﻿@model List<PhoneBook.Models.PersonModel>
+
+<div>
+    <p>Znajdź osobę po nazwisku:</p>
+    <form asp-action="Index" method="post">
+        <input type="text" name="lastName" value="" />
+        <input type="submit" value="Szukaj" />
+    </form>
+</div>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </tr>
+    @foreach (var person in Model)
+    {
+        <tr>
+            <td>@person.ID</td>
+            <td>@person.FirstName</td>
+            <td>@person.LastName</td>
+            <td>@person.Phone</td>
+            <td>@person.Email</td>
+            <td>@person.Created</td>
+            <td>@person.Updated</td>
+            <td><a href="edit/@person.ID"><button>Edit</button></a></td>
+            <td><a href="remove/@person.ID"><button>Remove</button></a></td>
+        </tr>
+    }
+</table>
+<form asp-action="Index" method="get" style="display: inline">
+    <input type="hidden" name="id" value="@ViewBag.Prev" />
+    <input type="submit" value="Poprzednia strona" />
+</form>
+<p style="display: inline">Strona @ViewBag.Page </p>
+<form asp-action="Index" method="get" style="display: inline">
+    <input type="hidden" name="id" value="@ViewBag.Next" />
+    <input type="submit" value="Następna strona" />
+</form>
+

@@ -1,0 +1,31 @@
+﻿@model PhoneBook.Models.PersonModel
+<p>Czy na pewno chcesz usunąć podaną osobę?</p>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Created</th>
+        <th>Updated</th>
+        <th>Edit</th>
+        <th>Remove</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+        <td>@Model.Phone</td>
+        <td>@Model.Email</td>
+        <td>@Model.Created</td>
+        <td>@Model.Updated</td>
+    </tr>
+
+</table>
+
+<form asp-action="RemoveConfirm" method="post">
+    <input type="hidden" name="id" value="@Model.ID" />
+    <input type="submit" value="TAK" />
+
+</form>
