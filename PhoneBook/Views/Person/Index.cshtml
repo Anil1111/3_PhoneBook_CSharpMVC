@@ -30,8 +30,8 @@
             <td>@person.Email</td>
             <td>@person.Created</td>
             <td>@person.Updated</td>
-            <td><a href="edit/@person.ID"><button>Edit</button></a></td>
-            <td><a href="remove/@person.ID"><button>Remove</button></a></td>
+            <td><a asp-action="Edit" asp-route-id="@person.ID"><button>Edit</button></a></td>
+            <td><a asp-action="Remove" asp-route-id="@person.ID"><button>Remove</button></a></td>
         </tr>
     }
 </table>
